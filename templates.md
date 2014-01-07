@@ -3,8 +3,9 @@ layout: default
 title: Templates
 ---
 
-The Serenade.js template language is inspired by Slim, Jade and HAML, but not
-identical to any of these.
+The Serenade.js template language is inspired by Slim, Jade and HAML, but
+not identical to any of these. It is a declarative language, favoring
+descriptions over instructions.
 
 Any view in Serenade.js must have a single element as its root node. Elements
 may have any number of children. Elements can have attributes within square
@@ -192,6 +193,21 @@ div
         "Now in sub-object context, with aMessage: "
         @aMessage
 ```
+
+## Conditionals
+
+Even the most declarative of languages seems to benefit from `if` and
+`else` logic. It's often the most readable option.
+
+```
+div.msgWindow
+  - if @firedZeMissiles
+    span.disaster "Now you've done it!"
+  - else
+    "No missiles fired... yet"
+```
+
+Note that `else` is optional, as you'd expect.
 
 ## Custom helpers
 
