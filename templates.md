@@ -167,6 +167,32 @@ Serenade.controller('comment', CommentController);
 Serenade.js will now infer that you want to use a `CommentController` with the
 `comment` view.
 
+## Delegate to member object
+
+Not to be confused with [property delegation](model.html#macros-delegate),
+the `in` instruction allows you to change the model context of the view.
+This is similar to the `collection` instruction, except that it uses a
+particular object instead of looping over the items within a collection.
+
+```
+model = {
+  aNumber: 25,
+  subObj: {
+    aMessage = "foo"
+  }
+};
+```
+```
+div
+  "Now in model context, with aNumber: "
+  @aNumber
+  ul
+    li
+      - in @subObj
+        "Now in sub-object context, with aMessage: "
+        @aMessage
+```
+
 ## Custom helpers
 
 Read about how you can define custom helpers under [Custom helpers](custom_helpers.html).
